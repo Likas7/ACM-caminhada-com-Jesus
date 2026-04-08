@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════
+   App Layout Styles — v2.0
+   ═══════════════════════════════════════════ */
+
+.dashboard {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.tab.active {
+  background: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.tab-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.tab-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Main content ── */
+.main-content {
+  flex: 1;
+  padding-top: 16px;
+  padding-bottom: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Footer ── */
+.app-footer {
+  text-align: center;
+  padding: 32px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+  margin-top: auto;
+}
+
+.app-footer p {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.footer-sub {
+  margin-top: 6px;
+  font-family: var(--font-ui) !important;
+  font-size: 0.7rem !important;
+  opacity: 0.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .tabs {
+    padding: 8px 10px;
+    gap: 3px;
+  }
+  .tab {
+    padding: 8px 8px;
+    font-size: 0.7rem;
+    gap: 3px;
+  }
+  .tab-icon {
+    font-size: 0.9rem;
+  }
+  .main-content {
+    padding-top: 12px;
+  }
+}

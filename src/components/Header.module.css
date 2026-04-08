@@ -1,0 +1,230 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.crossIcon {
+  font-size: 1.5rem;
+  color: var(--gold-300);
+  line-height: 1;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.greeting {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.rankLabel {
+  color: var(--gold-300);
+  font-weight: 500;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kmBadge {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 6px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+}
+
+.kmValue {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold-200);
+}
+
+.kmLabel {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.settingsBtn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast);
+  line-height: 1;
+}
+
+.settingsBtn:hover {
+  background: var(--bg-tertiary);
+  transform: rotate(45deg);
+}
+
+/* Progress bar */
+.progressBar {
+  height: 3px;
+  background: var(--bg-tertiary);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-400), var(--gold-200));
+  transition: width 0.8s var(--ease-out);
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px rgba(232, 205, 107, 0.3);
+}
+
+/* Settings panel */
+.settingsPanel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 200;
+}
+
+.settingsOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.settingsContent {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+  margin: 8px 20px 0 auto;
+  padding: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  animation: fadeInDown 0.2s var(--ease-out);
+}
+
+.settingsContent h3 {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+.settingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.toggle {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-tertiary);
+  padding: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.toggleBtn {
+  padding: 5px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.toggleBtn.active {
+  background: var(--gold-400);
+  color: var(--bg-primary);
+}
+
+.dangerZone {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(220, 60, 60, 0.2);
+}
+
+.dangerLabel {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: #dc3c3c;
+  margin-bottom: 8px;
+}
+
+.resetBtn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(220, 60, 60, 0.1);
+  border: 1px solid rgba(220, 60, 60, 0.3);
+  border-radius: var(--radius-sm);
+  color: #dc3c3c;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.resetBtn:hover {
+  background: rgba(220, 60, 60, 0.2);
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 0.85rem;
+  }
+  .kmBadge {
+    padding: 5px 10px;
+  }
+  .kmValue {
+    font-size: 0.8rem;
+  }
+}

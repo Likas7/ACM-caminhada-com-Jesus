@@ -1,0 +1,25 @@
+{
+  "name": "Caminhada com Jesus",
+  "short_name": "Caminhada",
+  "description": "Transforme seus passos em uma jornada espiritual pelos lugares onde Jesus viveu e ministrou. 360 km de Belém a Jerusalém.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F0D0B",
+  "theme_color": "#1A1410",
+  "orientation": "portrait",
+  "categories": ["health", "lifestyle", "fitness"],
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

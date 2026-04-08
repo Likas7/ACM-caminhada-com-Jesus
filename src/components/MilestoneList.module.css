@@ -1,0 +1,126 @@
+.container {
+  margin: 0 20px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+  flex: 1;
+}
+
+.count {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.list {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* ── Item ── */
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--duration-fast);
+  font-family: var(--font-ui);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item.unlocked:hover {
+  background: var(--bg-card-hover);
+}
+
+.item.locked {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.item.current {
+  background: rgba(212, 165, 116, 0.06);
+  border-left: 3px solid var(--gold-300);
+}
+
+.item.principal.unlocked {
+  background: rgba(232, 205, 107, 0.04);
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.itemBadge {
+  font-size: 1.3rem;
+  width: 36px;
+  text-align: center;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemName {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.itemRef {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.itemKm {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.principalTag {
+  font-size: 0.9rem;
+}

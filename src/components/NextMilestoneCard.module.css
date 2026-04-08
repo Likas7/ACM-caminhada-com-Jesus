@@ -1,0 +1,164 @@
+.card {
+  margin: 0 20px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* ── Current Milestone ── */
+.currentSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: background var(--duration-fast);
+}
+
+.currentSection:hover {
+  background: var(--bg-card-hover);
+}
+
+.currentBadge {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 165, 116, 0.08);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.currentInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.currentLabel {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.currentName {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+.arrow {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* ── Progress ── */
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px 12px;
+}
+
+.progressBarBg {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-400), var(--gold-200));
+  border-radius: var(--radius-full);
+  transition: width 0.8s var(--ease-out);
+  box-shadow: 0 0 6px rgba(232, 205, 107, 0.3);
+}
+
+.progressPct {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gold-200);
+  min-width: 30px;
+  text-align: right;
+}
+
+/* ── Next Milestone ── */
+.nextSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-tertiary);
+}
+
+.nextBadge {
+  font-size: 1.3rem;
+  width: 32px;
+  text-align: center;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.nextInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nextLabel {
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nextName {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+
+.nextKm {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold-300);
+  flex-shrink: 0;
+}
+
+/* ── Complete ── */
+.completeSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  background: rgba(107, 159, 58, 0.06);
+}
+
+.completeEmoji {
+  font-size: 1.5rem;
+}
+
+.completeText {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--status-complete);
+  letter-spacing: 0.02em;
+}
