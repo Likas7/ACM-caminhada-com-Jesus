@@ -3,12 +3,9 @@ import { useApp } from '../context/useApp';
 import { formatDistance } from '../data/storage';
 import styles from './AddKmPanel.module.css';
 
-const QUICK_VALUES = [1, 2, 3, 5, 10];
-
 export default function AddKmPanel() {
   const { state, addKm, showToast } = useApp();
   const [customKm, setCustomKm] = useState('');
-  const [showCustom, setShowCustom] = useState(false);
 
   if (!state) return null;
 
@@ -21,7 +18,6 @@ export default function AddKmPanel() {
     addKm(actual);
     showToast(`+${formatDistance(actual, unit)} adicionados! 🚶`);
     setCustomKm('');
-    setShowCustom(false);
   };
 
   const handleCustomSubmit = (e) => {
@@ -52,42 +48,21 @@ export default function AddKmPanel() {
 
       {!isComplete && (
         <div className={styles.body}>
-          <div className={styles.quickButtons}>
-            {QUICK_VALUES.map(v => (
-              <button
-                key={v}
-                className={styles.quickBtn}
-                onClick={() => handleAdd(v)}
-              >
-                +{v} km
-              </button>
-            ))}
-            <button
-              className={`${styles.quickBtn} ${styles.customToggle}`}
-              onClick={() => setShowCustom(!showCustom)}
-            >
-              ✏️
+          <form onSubmit={handleCustomSubmit} className={styles.customForm}>
+            <input
+              type="number"
+              step="0.1"
+              min="0.1"
+              max={remaining}
+              placeholder={`Km percorridos`}
+              value={customKm}
+              onChange={(e) => setCustomKm(e.target.value)}
+              className={styles.customInput}
+            />
+            <button type="submit" className={styles.customSubmit} disabled={!customKm}>
+              Registrar
             </button>
-          </div>
-
-          {showCustom && (
-            <form onSubmit={handleCustomSubmit} className={styles.customForm}>
-              <input
-                type="number"
-                step="0.1"
-                min="0.1"
-                max={remaining}
-                placeholder="Km percorridos"
-                value={customKm}
-                onChange={(e) => setCustomKm(e.target.value)}
-                className={styles.customInput}
-                autoFocus
-              />
-              <button type="submit" className={styles.customSubmit} disabled={!customKm}>
-                Adicionar
-              </button>
-            </form>
-          )}
+          </form>
         </div>
       )}
     </div>

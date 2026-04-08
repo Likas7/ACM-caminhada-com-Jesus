@@ -42,49 +42,10 @@
   padding: 16px 20px 20px;
 }
 
-.quickButtons {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.quickBtn {
-  flex: 1;
-  min-width: 55px;
-  padding: 12px 8px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-out);
-}
-
-.quickBtn:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--gold-400);
-  color: var(--gold-200);
-  transform: translateY(-1px);
-}
-
-.quickBtn:active {
-  transform: translateY(0);
-}
-
-.customToggle {
-  min-width: 44px;
-  flex: 0;
-}
-
 /* ── Custom form ── */
 .customForm {
   display: flex;
   gap: 8px;
-  margin-top: 12px;
-  animation: fadeInUp 0.2s var(--ease-out);
 }
 
 .customInput {
