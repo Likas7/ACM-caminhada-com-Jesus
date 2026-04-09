@@ -115,31 +115,35 @@ export default function SnakeMap() {
               onClick={() => isUnlocked && setActiveModal(m)}
               style={{ cursor: isUnlocked ? 'pointer' : 'default' }}
             >
-              {/* Glow for current */}
+              {/* Soft blue glow for current position */}
               {isCurrent && (
-                <circle
-                  cx={x} cy={y} r={r + 10}
-                  fill="none"
-                  stroke="var(--color-primary-light)"
-                  strokeWidth="2"
-                  opacity="0.3"
-                  className={styles.currentGlow}
-                />
+                <g>
+                  <circle
+                    cx={x} cy={y} r={r + 15}
+                    fill="var(--color-primary-light)"
+                    opacity="0.15"
+                    className={styles.pulseOnly}
+                  />
+                  <circle
+                    cx={x} cy={y} r={r + 8}
+                    fill="none"
+                    stroke="var(--color-primary-light)"
+                    strokeWidth="2"
+                    opacity="0.4"
+                    className={styles.currentGlow}
+                  />
+                </g>
               )}
 
               {/* Main circle */}
               <circle
                 cx={x} cy={y} r={r}
-                fill={isUnlocked
-                  ? (isPrincipal ? 'var(--color-accent)' : 'var(--color-primary)')
-                  : 'var(--bg-locked)'
-                }
+                fill={isUnlocked ? 'var(--color-primary)' : 'var(--bg-locked)'}
                 stroke={isUnlocked
-                  ? (isPrincipal ? 'var(--color-accent-light)' : 'var(--color-primary-light)')
+                  ? (isPrincipal ? 'var(--color-primary-light)' : 'var(--color-primary-light)')
                   : 'var(--border-subtle)'
                 }
-                strokeWidth={isPrincipal ? 3 : 2}
-                filter={isPrincipal && isUnlocked ? 'url(#softGlow)' : ''}
+                strokeWidth={isPrincipal ? 4 : 2}
               />
 
               {/* Badge emoji */}
@@ -180,28 +184,7 @@ export default function SnakeMap() {
           );
         })}
 
-        {/* Traveler indicator */}
-        {state && travelerPos && (
-          <g className={styles.traveler}>
-            <circle
-              cx={travelerPos[0]}
-              cy={travelerPos[1]}
-              r="28"
-              fill="none"
-              stroke="var(--color-primary-light)"
-              strokeWidth="1.5"
-              opacity="0.4"
-              className={styles.travelerPulse}
-            />
-            <circle
-              cx={travelerPos[0]}
-              cy={travelerPos[1]}
-              r="5"
-              fill="var(--color-primary)"
-              filter="url(#glow)"
-            />
-          </g>
-        )}
+        {/* Traveler indicator removed as requested */}
       </svg>
     </div>
   );
