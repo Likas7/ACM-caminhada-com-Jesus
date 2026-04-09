@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useApp } from '../context/useApp';
 import { formatDistance } from '../data/storage';
 import { milestones } from '../data/milestones';
+import { ACMLogo } from './ACMLogo';
 import styles from './NextMilestoneCard.module.css';
 
 export default function NextMilestoneCard() {
@@ -75,8 +76,13 @@ export default function NextMilestoneCard() {
 
       {isComplete && (
         <div className={styles.completeSection}>
-          <span className={styles.completeEmoji}>🎉</span>
-          <span className={styles.completeText}>Jornada completa — Jerusalém alcançada!</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+            <ACMLogo size={36} variant="white" />
+            <span className={styles.completeText}>Jornada completa — Jerusalém alcançada!</span>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', letterSpacing: '1px', fontWeight: 'bold' }}>
+              MISSÃO CRISTÃ · ACM SOROCABA
+            </span>
+          </div>
         </div>
       )}
     </div>

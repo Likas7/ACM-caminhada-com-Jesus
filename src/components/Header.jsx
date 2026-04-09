@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useApp } from '../context/useApp';
 import { getRank, formatDistance } from '../data/storage';
+import { ACMLogo } from './ACMLogo';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -17,16 +18,20 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <div className={styles.left}>
-          <div className={styles.crossIcon}>✝</div>
+          <ACMLogo size={28} variant="white" />
           <div className={styles.brand}>
             <h1 className={styles.title}>Caminhada com Jesus</h1>
             <p className={styles.greeting}>
-              {rank.emoji} {state.userName} · <span className={styles.rankLabel}>{rank.title}</span>
+              Missão Cristã · ACM Sorocaba
             </p>
           </div>
         </div>
 
         <div className={styles.right}>
+          <div className={styles.userInfo}>
+            <span className={styles.userRank}>{rank.title}</span>
+            <span className={styles.userName}>{rank.emoji} {state.userName}</span>
+          </div>
           <div className={styles.kmBadge}>
             <span className={styles.kmValue}>{formatDistance(state.totalKm, unit)}</span>
             <span className={styles.kmLabel}>/ {formatDistance(360, unit)}</span>

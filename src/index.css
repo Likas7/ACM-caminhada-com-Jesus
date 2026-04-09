@@ -6,51 +6,37 @@
 
 /* ─── Tokens ─── */
 :root {
-  /* Sacred palette */
-  --gold-50: #FDF8E8;
-  --gold-100: #F5E6B8;
-  --gold-200: #E8CD6B;
-  --gold-300: #D4A574;
-  --gold-400: #C49A3C;
-  --gold-500: #8B6914;
-  --gold-600: #6B5210;
+  /* Backgrounds */
+  --bg-primary: #0D1822;
+  --bg-card: #111F30;
+  --bg-elevated: #162840;
+  --bg-glass: rgba(17, 31, 48, 0.85);
+  --bg-glass-light: rgba(22, 40, 64, 0.6);
 
-  /* Earth palette */
-  --earth-50: #FAF6F0;
-  --earth-100: #F0E6D6;
-  --earth-200: #D4C4A8;
-  --earth-300: #B8A48C;
-  --earth-400: #8B7355;
-  --earth-500: #5C4A32;
-
-  /* Background */
-  --bg-primary: #0F0D0B;
-  --bg-secondary: #1A1610;
-  --bg-tertiary: #231E16;
-  --bg-card: #1E1A14;
-  --bg-card-hover: #2A2418;
-  --bg-glass: rgba(26, 22, 16, 0.85);
-  --bg-glass-light: rgba(30, 26, 20, 0.6);
+  /* Brand — ACM Sorocaba */
+  --color-primary: #2E6DA4;
+  --color-primary-dark: #3D6B9E;
+  --color-primary-light: #5B8EC4;
+  --color-accent: #D9534F;
 
   /* Text */
-  --text-primary: #F5E6B8;
-  --text-secondary: #B8A48C;
-  --text-muted: #7A6B55;
-  --text-accent: #E8CD6B;
+  --text-primary: #EEF3FA;
+  --text-secondary: #7A9BC4;
+  --text-muted: #4A7098;
 
-  /* Status */
-  --status-locked: #4A3F30;
-  --status-active: #D4A574;
-  --status-complete: #6B9F3A;
-  --status-principal: #E8CD6B;
+  /* Borders */
+  --border-subtle: #1A3A5C;
+  --border-medium: #2E6DA430;
+
+  /* States */
+  --state-locked: #080E16;
+  --state-disabled: #1A3A5C;
 
   /* Semantic */
-  --border: rgba(212, 165, 116, 0.12);
-  --border-hover: rgba(212, 165, 116, 0.25);
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
   --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
   --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
-  --shadow-glow: 0 0 20px rgba(212, 165, 116, 0.15);
+  --shadow-glow: 0 0 20px rgba(46, 109, 164, 0.25);
 
   /* Typography */
   --font-display: 'Cinzel', serif;
@@ -110,8 +96,8 @@ body::before {
   position: fixed;
   inset: 0;
   background: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 165, 116, 0.06), transparent),
-    radial-gradient(ellipse 60% 30% at 80% 110%, rgba(139, 105, 20, 0.04), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(46, 109, 164, 0.08), transparent),
+    radial-gradient(ellipse 60% 30% at 80% 110%, rgba(91, 142, 196, 0.05), transparent);
   pointer-events: none;
   z-index: 0;
 }
@@ -130,11 +116,11 @@ body::before {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--earth-400);
+  background: var(--text-muted);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-300);
+  background: var(--color-primary);
 }
 
 /* ─── Typography ─── */
@@ -152,12 +138,12 @@ p {
 }
 
 a {
-  color: var(--gold-300);
+  color: var(--color-primary);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
 a:hover {
-  color: var(--gold-200);
+  color: var(--color-primary-light);
 }
 
 /* ─── Utility Classes ─── */
@@ -214,20 +200,20 @@ a:hover {
 }
 
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(212, 165, 116, 0.2); }
-  50% { box-shadow: 0 0 20px rgba(212, 165, 116, 0.4); }
+  0%, 100% { box-shadow: 0 0 8px rgba(46, 109, 164, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(46, 109, 164, 0.5); }
 }
 
 /* Leaflet overrides */
 .leaflet-container {
-  background: var(--bg-secondary) !important;
+  background: var(--bg-primary) !important;
   font-family: var(--font-ui) !important;
 }
 
 .leaflet-popup-content-wrapper {
   background: var(--bg-card) !important;
   color: var(--text-primary) !important;
-  border: 1px solid var(--border) !important;
+  border: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-md) !important;
   box-shadow: var(--shadow-lg) !important;
 }

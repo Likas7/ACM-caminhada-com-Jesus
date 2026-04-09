@@ -59,12 +59,12 @@ export default function SnakeMap() {
       >
         <defs>
           <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--gold-300)" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="var(--gold-500)" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="var(--color-primary-dark)" stopOpacity="0.08" />
           </linearGradient>
           <linearGradient id="activePathGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="var(--gold-200)" />
-            <stop offset="100%" stopColor="var(--gold-400)" />
+            <stop offset="0%" stopColor="var(--color-primary-light)" />
+            <stop offset="100%" stopColor="var(--color-primary)" />
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur stdDeviation="4" result="coloredBlur" />
@@ -120,7 +120,7 @@ export default function SnakeMap() {
                 <circle
                   cx={x} cy={y} r={r + 10}
                   fill="none"
-                  stroke="var(--gold-200)"
+                  stroke="var(--color-primary-light)"
                   strokeWidth="2"
                   opacity="0.3"
                   className={styles.currentGlow}
@@ -131,12 +131,12 @@ export default function SnakeMap() {
               <circle
                 cx={x} cy={y} r={r}
                 fill={isUnlocked
-                  ? (isPrincipal ? 'var(--bg-card)' : 'var(--bg-tertiary)')
-                  : 'var(--status-locked)'
+                  ? (isPrincipal ? 'var(--bg-card)' : 'var(--bg-card)')
+                  : 'var(--state-locked)'
                 }
                 stroke={isUnlocked
-                  ? (isPrincipal ? 'var(--gold-200)' : 'var(--gold-400)')
-                  : 'var(--earth-500)'
+                  ? (isPrincipal ? 'var(--color-accent)' : 'var(--color-primary)')
+                  : 'var(--text-muted)'
                 }
                 strokeWidth={isPrincipal ? 2.5 : 1.5}
               />
@@ -187,7 +187,7 @@ export default function SnakeMap() {
               cy={travelerPos[1]}
               r="28"
               fill="none"
-              stroke="var(--gold-200)"
+              stroke="var(--color-primary-light)"
               strokeWidth="1.5"
               opacity="0.4"
               className={styles.travelerPulse}
@@ -196,7 +196,7 @@ export default function SnakeMap() {
               cx={travelerPos[0]}
               cy={travelerPos[1]}
               r="5"
-              fill="var(--gold-200)"
+              fill="var(--color-primary)"
               filter="url(#glow)"
             />
           </g>

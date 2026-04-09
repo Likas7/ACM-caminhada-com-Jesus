@@ -138,7 +138,7 @@ export default function HistoryView() {
             <circle
               cx="60" cy="60" r="52"
               fill="none"
-              stroke="var(--border)"
+              stroke="var(--border-subtle)"
               strokeWidth="6"
             />
             <circle
@@ -153,8 +153,8 @@ export default function HistoryView() {
             />
             <defs>
               <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="var(--gold-200)" />
-                <stop offset="100%" stopColor="var(--gold-400)" />
+                <stop offset="0%" stopColor="var(--color-primary-light)" />
+                <stop offset="100%" stopColor="var(--color-primary)" />
               </linearGradient>
             </defs>
             <text x="60" y="55" textAnchor="middle" className={styles.ringPct}>

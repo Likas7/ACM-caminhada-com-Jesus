@@ -4,7 +4,7 @@
   z-index: 100;
   background: var(--bg-glass);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .inner {
@@ -20,12 +20,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.crossIcon {
-  font-size: 1.5rem;
-  color: var(--gold-300);
-  line-height: 1;
 }
 
 .brand {
@@ -45,19 +39,36 @@
 .greeting {
   font-family: var(--font-ui);
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--text-secondary); /* or a slightly distinct color like #B8D0EC */
   margin-top: 2px;
-}
-
-.rankLabel {
-  color: var(--gold-300);
-  font-weight: 500;
 }
 
 .right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: center;
+}
+
+.userRank {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.userName {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .kmBadge {
@@ -65,8 +76,8 @@
   align-items: baseline;
   gap: 4px;
   padding: 6px 14px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
 }
 
@@ -74,7 +85,7 @@
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--gold-200);
+  color: var(--color-primary-light);
 }
 
 .kmLabel {
@@ -95,22 +106,21 @@
 }
 
 .settingsBtn:hover {
-  background: var(--bg-tertiary);
+  background: var(--bg-card);
   transform: rotate(45deg);
 }
 
-/* Progress bar */
 .progressBar {
   height: 3px;
-  background: var(--bg-tertiary);
+  background: var(--bg-card);
 }
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, var(--gold-400), var(--gold-200));
+  background: linear-gradient(90deg, #1A4A80, var(--color-primary), var(--color-primary-light));
   transition: width 0.8s var(--ease-out);
   border-radius: 0 2px 2px 0;
-  box-shadow: 0 0 8px rgba(232, 205, 107, 0.3);
+  box-shadow: 0 0 10px rgba(46, 109, 164, 0.6); /* --color-primary #2E6DA4 at 60% */
 }
 
 /* Settings panel */
@@ -135,7 +145,7 @@
   margin: 8px 20px 0 auto;
   padding: 20px;
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   animation: fadeInDown 0.2s var(--ease-out);
@@ -154,7 +164,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-ui);
   font-size: 0.85rem;
   color: var(--text-secondary);
@@ -163,7 +173,7 @@
 .toggle {
   display: flex;
   gap: 4px;
-  background: var(--bg-tertiary);
+  background: var(--bg-card);
   padding: 3px;
   border-radius: var(--radius-sm);
 }
@@ -182,7 +192,7 @@
 }
 
 .toggleBtn.active {
-  background: var(--gold-400);
+  background: var(--color-primary);
   color: var(--bg-primary);
 }
 

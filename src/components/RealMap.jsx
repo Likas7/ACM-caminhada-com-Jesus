@@ -63,7 +63,7 @@ export default function RealMap() {
           <Polyline
             positions={pathPositions}
             pathOptions={{
-              color: '#D4A574',
+              color: 'var(--color-primary)',
               weight: 2,
               opacity: 0.3,
               dashArray: '6,6',

@@ -6,7 +6,7 @@
   z-index: 5000;
   padding: 12px 24px;
   background: var(--bg-card);
-  border: 1px solid var(--border-hover);
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-lg);
   font-family: var(--font-ui);
