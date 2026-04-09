@@ -1,0 +1,17 @@
+<svg viewBox="0 0 512 640" xmlns="http://www.w3.org/2000/svg">
+  <!-- Classic ACM/YMCA Logo Structure -->
+  <g transform="translate(106, 40)">
+    <!-- Blue Body -->
+    <path d="M0 0 H80 V180 H140 V0 H220 V300 H140 V400 H60 V300 H0 Z" fill="#2E6DA4"/>
+    <!-- Red Triangle -->
+    <path d="M140 0 L220 0 L220 120 Z" fill="#D9534F"/>
+    <!-- Registered Symbol -->
+    <circle cx="235" cy="275" r="8" stroke="#2E6DA4" stroke-width="1" fill="none"/>
+    <text x="235" y="279" font-family="Arial" font-size="10" fill="#2E6DA4" text-anchor="middle">R</text>
+  </g>
+  
+  <!-- ACM Text -->
+  <text x="256" y="520" font-family="Arial, sans-serif" font-weight="900" font-size="90" fill="#2E6DA4" text-anchor="middle">ACM</text>
+  <!-- SOROCABA Text -->
+  <text x="256" y="580" font-family="Arial, sans-serif" font-weight="700" font-size="34" fill="#2E6DA4" text-anchor="middle" letter-spacing="10">SOROCABA</text>
+</svg>

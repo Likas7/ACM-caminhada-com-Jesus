@@ -1,10 +1,8 @@
 // src/components/ACMLogo.jsx
-// Versão definitiva: Carrega a imagem oficial fornecida pelo usuário
-// Requisito: Salvar a imagem como 'public/logo-acm.png'
+// Versão definitiva: Carrega a imagem oficial (SVG para máxima fidelidade)
+// Requisito: Salvo como 'public/logo-acm.svg'
 
 export function ACMLogo({ size = 32, variant = "color" }) {
-  // Nota: Para a versão 'white', o ideal seria ter uma imagem 'logo-acm-white.png'
-  // Mas por enquanto usaremos a mesma ou um filtro de brilho se for a colorida
   const isWhite = variant === "white";
 
   return (
@@ -15,17 +13,13 @@ export function ACMLogo({ size = 32, variant = "color" }) {
       width: size 
     }}>
       <img 
-        src="/logo-acm.png" 
+        src="/logo-acm.svg" 
         alt="ACM Sorocaba" 
         style={{ 
           width: '100%', 
           height: 'auto',
           filter: isWhite ? 'brightness(0) invert(1)' : 'none'
         }} 
-        onError={(e) => {
-          // Fallback caso a imagem não seja encontrada na pasta public
-          e.target.style.display = 'none';
-        }}
       />
     </div>
   );
@@ -35,7 +29,7 @@ export function ACMIcon({ size = 32, variant = "color" }) {
   const isWhite = variant === "white";
   return (
     <img 
-      src="/logo-acm.png" 
+      src="/logo-acm.svg" 
       alt="ACM Icon" 
       style={{ 
         width: size, 
@@ -45,3 +39,4 @@ export function ACMIcon({ size = 32, variant = "color" }) {
     />
   );
 }
+
