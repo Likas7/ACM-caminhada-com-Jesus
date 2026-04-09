@@ -5,10 +5,10 @@
   transform: translateX(-50%);
   z-index: 5000;
   padding: 12px 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-medium);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   font-family: var(--font-ui);
   font-size: 0.85rem;
   color: var(--text-primary);

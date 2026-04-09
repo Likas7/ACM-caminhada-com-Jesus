@@ -30,8 +30,8 @@ export default function LoginScreen() {
         </div>
 
         <h1 className={styles.title}>Caminhada<br/>com Jesus</h1>
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
-          <ACMLogo size={48} variant="white" />
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
+          <ACMLogo size={80} variant="color" />
         </div>
         <p className={styles.subtitle}>
           Transforme seus passos em uma jornada espiritual<br/>

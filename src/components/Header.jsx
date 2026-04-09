@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useApp } from '../context/useApp';
 import { getRank, formatDistance } from '../data/storage';
-import { ACMLogo } from './ACMLogo';
+import { ACMIcon } from './ACMLogo';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -18,7 +18,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <div className={styles.left}>
-          <ACMLogo size={28} variant="white" />
+          <ACMIcon size={32} variant="white" />
           <div className={styles.brand}>
             <h1 className={styles.title}>Caminhada com Jesus</h1>
             <p className={styles.greeting}>

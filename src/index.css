@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════
-   CAMINHADA COM JESUS — Design System
+   CAMINHADA COM JESUS — Design System v2.0
+   Tema Claro (yFit/ySistemas)
    ═══════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -7,36 +8,47 @@
 /* ─── Tokens ─── */
 :root {
   /* Backgrounds */
-  --bg-primary: #0D1822;
-  --bg-card: #111F30;
-  --bg-elevated: #162840;
-  --bg-glass: rgba(17, 31, 48, 0.85);
-  --bg-glass-light: rgba(22, 40, 64, 0.6);
+  --bg-primary: #FFFFFF;
+  --bg-card: #F4F4F4;
+  --bg-elevated: #EBEBEB;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --bg-glass-light: rgba(244, 244, 244, 0.7);
+  --bg-input: #FFFFFF;
+  --bg-input-focus: #F0F5FB;
+  --bg-locked: #F0F0F0;
+  --bg-header: #3D6B9E;
 
   /* Brand — ACM Sorocaba */
   --color-primary: #2E6DA4;
-  --color-primary-dark: #3D6B9E;
+  --color-primary-dark: #245A8E;
   --color-primary-light: #5B8EC4;
   --color-accent: #D9534F;
+  --color-accent-light: #E07070;
+  --color-strava: #FC4C02;
 
   /* Text */
-  --text-primary: #EEF3FA;
-  --text-secondary: #7A9BC4;
-  --text-muted: #4A7098;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --text-locked: #BBBBBB;
+  --text-on-primary: #FFFFFF;
 
   /* Borders */
-  --border-subtle: #1A3A5C;
-  --border-medium: #2E6DA430;
+  --border-subtle: #E0E0E0;
+  --border-medium: #D0D0D0;
+  --border-primary: #2E6DA430;
 
   /* States */
-  --state-locked: #080E16;
-  --state-disabled: #1A3A5C;
+  --state-locked: #F0F0F0;
+  --state-disabled: #E0E0E0;
 
-  /* Semantic */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
-  --shadow-glow: 0 0 20px rgba(46, 109, 164, 0.25);
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+  --shadow-glow: 0 2px 8px rgba(46, 109, 164, 0.25);
+  --shadow-modal: 0 -2px 20px rgba(0,0,0,0.12);
+  --shadow-button: 0 2px 8px rgba(46,109,164,0.25);
 
   /* Typography */
   --font-display: 'Cinzel', serif;
@@ -65,6 +77,13 @@
   --duration-fast: 150ms;
   --duration-normal: 300ms;
   --duration-slow: 500ms;
+
+  /* Map Snake */
+  --map-bg: #F8F8F8;
+  --map-dot-grid: #E8E8E8;
+  --map-path-done: #2E6DA4;
+  --map-path-locked: #CCCCCC;
+  --map-track: #E0E0E0;
 }
 
 /* ─── Reset ─── */
@@ -83,23 +102,11 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--bg-primary);
+  background: var(--bg-card);
   color: var(--text-secondary);
   line-height: 1.6;
   min-height: 100dvh;
   overflow-x: hidden;
-}
-
-/* Subtle texture overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(46, 109, 164, 0.08), transparent),
-    radial-gradient(ellipse 60% 30% at 80% 110%, rgba(91, 142, 196, 0.05), transparent);
-  pointer-events: none;
-  z-index: 0;
 }
 
 #root {
@@ -113,14 +120,14 @@ body::before {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--bg-card);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
+  background: var(--border-medium);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
+  background: var(--text-muted);
 }
 
 /* ─── Typography ─── */
@@ -143,7 +150,7 @@ a {
   transition: color var(--duration-fast) var(--ease-out);
 }
 a:hover {
-  color: var(--color-primary-light);
+  color: var(--color-primary-dark);
 }
 
 /* ─── Utility Classes ─── */
@@ -200,26 +207,26 @@ a:hover {
 }
 
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(46, 109, 164, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(46, 109, 164, 0.5); }
+  0%, 100% { box-shadow: 0 0 4px rgba(46, 109, 164, 0.15); }
+  50% { box-shadow: 0 0 12px rgba(46, 109, 164, 0.3); }
 }
 
 /* Leaflet overrides */
 .leaflet-container {
-  background: var(--bg-primary) !important;
+  background: var(--bg-card) !important;
   font-family: var(--font-ui) !important;
 }
 
 .leaflet-popup-content-wrapper {
-  background: var(--bg-card) !important;
+  background: var(--bg-primary) !important;
   color: var(--text-primary) !important;
   border: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-md) !important;
-  box-shadow: var(--shadow-lg) !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
 .leaflet-popup-tip {
-  background: var(--bg-card) !important;
+  background: var(--bg-primary) !important;
 }
 
 .leaflet-popup-content {

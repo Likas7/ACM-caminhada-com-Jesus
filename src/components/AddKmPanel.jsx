@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useApp } from '../context/useApp';
 import { formatDistance } from '../data/storage';
+import StravaSheet from './StravaSheet';
 import styles from './AddKmPanel.module.css';
 
 export default function AddKmPanel() {
   const { state, addKm, showToast } = useApp();
   const [customKm, setCustomKm] = useState('');
+  const [stravaOpen, setStravaOpen] = useState(false);
 
   if (!state) return null;
 
@@ -63,8 +65,28 @@ export default function AddKmPanel() {
               Registrar
             </button>
           </form>
+
+          {/* ── Strava divider + button ── */}
+          <div className={styles.stravaDivider} />
+
+          <button
+            type="button"
+            className={styles.stravaBtn}
+            onClick={() => setStravaOpen(true)}
+          >
+            <div className={styles.stravaBtnLeft}>
+              <span className={styles.stravaIcon}>⚡</span>
+              <div>
+                <span className={styles.stravaTitle}>Sincronizar com Strava</span>
+                <span className={styles.stravaSub}>Importar atividades automaticamente</span>
+              </div>
+            </div>
+            <span className={styles.stravaBadge}>EM BREVE</span>
+          </button>
         </div>
       )}
+
+      <StravaSheet open={stravaOpen} onClose={() => setStravaOpen(false)} />
     </div>
   );
 }

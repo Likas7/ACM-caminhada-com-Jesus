@@ -18,16 +18,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 16px;
-  background: var(--bg-card);
+  padding: 9px 12px;
+  background: var(--bg-primary);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   transition: all var(--duration-fast);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
 .statCard:hover {
-  background: var(--bg-elevated);
-  border-color: var(--border-medium);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
 }
 
 .statEmoji {
@@ -45,9 +46,9 @@
 
 .statValue {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-primary);
   letter-spacing: 0.02em;
   white-space: nowrap;
   overflow: hidden;
@@ -56,7 +57,7 @@
 
 .statLabel {
   font-family: var(--font-ui);
-  font-size: 0.65rem;
+  font-size: 0.53rem;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -71,9 +72,10 @@
   align-items: center;
   gap: 24px;
   padding: 24px;
-  background: var(--bg-card);
+  background: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .ringContainer {
@@ -135,10 +137,11 @@
    Next Milestone Card
    ═══════════════════════════════════════════ */
 .nextCard {
-  background: var(--bg-card);
+  background: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .nextHeader {
@@ -204,7 +207,7 @@
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .nextRemainingLabel {
@@ -217,12 +220,12 @@
 
 .nextProgress {
   height: 3px;
-  background: var(--bg-card);
+  background: var(--map-track);
 }
 
 .nextProgressFill {
   height: 100%;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  background: linear-gradient(90deg, #245A8E, var(--color-primary), var(--color-primary-light));
   transition: width 0.6s var(--ease-out);
   border-radius: 0 2px 2px 0;
 }
@@ -231,10 +234,11 @@
    Rank Card
    ═══════════════════════════════════════════ */
 .rankCard {
-  background: var(--bg-card);
+  background: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .rankHeader {
@@ -272,7 +276,7 @@
 .rankLevel.rankAchieved {
   opacity: 1;
   border-color: var(--color-primary);
-  background: rgba(212, 165, 116, 0.06);
+  background: rgba(46, 109, 164, 0.05);
 }
 
 .rankEmoji {
@@ -297,10 +301,11 @@
    History Log
    ═══════════════════════════════════════════ */
 .historyCard {
-  background: var(--bg-card);
+  background: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .historyHeader {

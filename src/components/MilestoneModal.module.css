@@ -4,8 +4,8 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.40);
+  backdrop-filter: blur(4px);
   animation: fadeIn 0.2s ease-out;
   overflow-y: auto;
   padding: 20px 16px;
@@ -22,6 +22,7 @@
   animation: scaleIn 0.3s var(--ease-spring);
   margin: auto 0;
   max-height: none;
+  box-shadow: var(--shadow-lg);
 }
 
 .closeBtn {
@@ -29,8 +30,7 @@
   top: 16px;
   right: 16px;
   z-index: 10;
-  background: var(--bg-glass);
-  backdrop-filter: blur(8px);
+  background: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
   width: 36px;
@@ -41,10 +41,11 @@
   color: var(--text-secondary);
   cursor: pointer;
   transition: all var(--duration-fast);
+  box-shadow: var(--shadow-sm);
 }
 
 .closeBtn:hover {
-  background: var(--bg-elevated);
+  background: var(--bg-card);
   color: var(--text-primary);
 }
 
@@ -56,14 +57,14 @@
   justify-content: center;
   padding: 40px 20px 28px;
   background:
-    radial-gradient(ellipse at 50% 80%, rgba(46, 109, 164, 0.15), transparent 60%),
+    radial-gradient(ellipse at 50% 80%, rgba(46, 109, 164, 0.08), transparent 60%),
     var(--bg-card);
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .heroPrincipal {
   background:
-    radial-gradient(ellipse at 50% 80%, rgba(217, 83, 79, 0.2), transparent 60%),
+    radial-gradient(ellipse at 50% 80%, rgba(217, 83, 79, 0.1), transparent 60%),
     var(--bg-card);
 }
 
@@ -99,10 +100,10 @@
   font-family: var(--font-ui);
   font-size: 0.7rem;
   color: var(--color-primary);
-  background: rgba(46, 109, 164, 0.1);
+  background: rgba(46, 109, 164, 0.08);
   padding: 4px 10px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(46, 109, 164, 0.2);
+  border: 1px solid rgba(46, 109, 164, 0.15);
 }
 
 .kmTag {
@@ -149,13 +150,13 @@
   padding: 20px 24px;
   margin: 0 0 24px;
   border-left: 3px solid var(--color-primary);
-  background: rgba(46, 109, 164, 0.05);
+  background: rgba(46, 109, 164, 0.04);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   font-family: var(--font-body);
   font-size: 1.05rem;
   font-style: italic;
   line-height: 1.7;
-  color: var(--text-primary);
+  color: #444444;
 }
 
 /* ── Narrative ── */
@@ -205,8 +206,8 @@
 /* ── Reflection ── */
 .reflectionBox {
   padding: 18px 20px;
-  background: rgba(46, 109, 164, 0.08);
-  border: 1px solid rgba(46, 109, 164, 0.15);
+  background: rgba(46, 109, 164, 0.05);
+  border: 1px solid rgba(46, 109, 164, 0.12);
   border-radius: var(--radius-md);
   margin-bottom: 20px;
 }

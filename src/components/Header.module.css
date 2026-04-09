@@ -2,9 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-header);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .inner {
@@ -31,7 +30,7 @@
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #FFFFFF;
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
@@ -39,7 +38,7 @@
 .greeting {
   font-family: var(--font-ui);
   font-size: 0.75rem;
-  color: var(--text-secondary); /* or a slightly distinct color like #B8D0EC */
+  color: #B8D0EC;
   margin-top: 2px;
 }
 
@@ -59,7 +58,7 @@
 .userRank {
   font-family: var(--font-ui);
   font-size: 0.65rem;
-  color: var(--text-muted);
+  color: #B8D0EC;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -67,7 +66,7 @@
 .userName {
   font-family: var(--font-display);
   font-size: 0.85rem;
-  color: var(--text-primary);
+  color: #FFFFFF;
   font-weight: 500;
 }
 
@@ -76,8 +75,8 @@
   align-items: baseline;
   gap: 4px;
   padding: 6px 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: var(--radius-full);
 }
 
@@ -85,13 +84,13 @@
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--color-primary-light);
+  color: #FFFFFF;
 }
 
 .kmLabel {
   font-family: var(--font-ui);
   font-size: 0.65rem;
-  color: var(--text-muted);
+  color: #B8D0EC;
 }
 
 .settingsBtn {
@@ -103,24 +102,25 @@
   border-radius: var(--radius-sm);
   transition: all var(--duration-fast);
   line-height: 1;
+  filter: brightness(1);
 }
 
 .settingsBtn:hover {
-  background: var(--bg-card);
+  background: rgba(255,255,255,0.12);
   transform: rotate(45deg);
 }
 
 .progressBar {
   height: 3px;
-  background: var(--bg-card);
+  background: rgba(255,255,255,0.15);
 }
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, #1A4A80, var(--color-primary), var(--color-primary-light));
+  background: linear-gradient(90deg, #245A8E, var(--color-primary), var(--color-primary-light));
   transition: width 0.8s var(--ease-out);
   border-radius: 0 2px 2px 0;
-  box-shadow: 0 0 10px rgba(46, 109, 164, 0.6); /* --color-primary #2E6DA4 at 60% */
+  box-shadow: 0 2px 8px rgba(46, 109, 164, 0.30);
 }
 
 /* Settings panel */
@@ -144,10 +144,10 @@
   max-width: 360px;
   margin: 8px 20px 0 auto;
   padding: 20px;
-  background: var(--bg-card);
+  background: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   animation: fadeInDown 0.2s var(--ease-out);
 }
 
@@ -193,7 +193,7 @@
 
 .toggleBtn.active {
   background: var(--color-primary);
-  color: var(--bg-primary);
+  color: #FFFFFF;
 }
 
 .dangerZone {
@@ -212,8 +212,8 @@
 .resetBtn {
   width: 100%;
   padding: 10px;
-  background: rgba(220, 60, 60, 0.1);
-  border: 1px solid rgba(220, 60, 60, 0.3);
+  background: rgba(220, 60, 60, 0.08);
+  border: 1px solid rgba(220, 60, 60, 0.25);
   border-radius: var(--radius-sm);
   color: #dc3c3c;
   font-family: var(--font-ui);
@@ -224,7 +224,7 @@
 }
 
 .resetBtn:hover {
-  background: rgba(220, 60, 60, 0.2);
+  background: rgba(220, 60, 60, 0.15);
 }
 
 @media (max-width: 480px) {

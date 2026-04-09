@@ -81,8 +81,8 @@ function Dashboard() {
 
       {/* Footer */}
       <footer className="app-footer">
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: 0.4, marginBottom: '8px' }}>
-          <ACMLogo size={20} variant="white" />
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: 0.5, marginBottom: '16px' }}>
+          <ACMLogo size={40} variant="color" />
         </div>
         <p>Caminhada com Jesus — Uma jornada de fé, um passo de cada vez</p>
         <p className="footer-sub">Missão Cristã da ACM Sorocaba · De Belém 🌟 a Jerusalém 👑 · 360 km</p>

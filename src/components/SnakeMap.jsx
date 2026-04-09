@@ -67,22 +67,22 @@ export default function SnakeMap() {
             <stop offset="100%" stopColor="var(--color-primary)" />
           </linearGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
           <filter id="softGlow">
-            <feGaussianBlur stdDeviation="6" />
+            <feGaussianBlur stdDeviation="3" />
           </filter>
         </defs>
 
-        {/* Background path (full snake) */}
+        {/* Background path (full snake — locked route) */}
         <path
           d={pathD}
           fill="none"
-          stroke="url(#pathGrad)"
+          stroke="var(--map-path-locked)"
           strokeWidth="6"
           strokeLinecap="round"
           strokeDasharray="12,8"
@@ -131,14 +131,15 @@ export default function SnakeMap() {
               <circle
                 cx={x} cy={y} r={r}
                 fill={isUnlocked
-                  ? (isPrincipal ? 'var(--bg-card)' : 'var(--bg-card)')
-                  : 'var(--state-locked)'
+                  ? (isPrincipal ? 'var(--color-accent)' : 'var(--color-primary)')
+                  : 'var(--bg-locked)'
                 }
                 stroke={isUnlocked
-                  ? (isPrincipal ? 'var(--color-accent)' : 'var(--color-primary)')
-                  : 'var(--text-muted)'
+                  ? (isPrincipal ? 'var(--color-accent-light)' : 'var(--color-primary-light)')
+                  : 'var(--border-subtle)'
                 }
-                strokeWidth={isPrincipal ? 2.5 : 1.5}
+                strokeWidth={isPrincipal ? 3 : 2}
+                filter={isPrincipal && isUnlocked ? 'url(#softGlow)' : ''}
               />
 
               {/* Badge emoji */}

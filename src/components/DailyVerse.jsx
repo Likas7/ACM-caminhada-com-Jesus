@@ -25,6 +25,7 @@ export default function DailyVerse() {
     <div
       className={styles.card}
       onClick={() => setActiveModal(todayVerse)}
+      style={{ borderLeftColor: todayVerse.type === 'principal' ? 'var(--color-accent)' : 'var(--color-primary)' }}
     >
       <div className={styles.label}>
         <span>✨</span>

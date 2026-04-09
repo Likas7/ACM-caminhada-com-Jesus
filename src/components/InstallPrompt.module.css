@@ -1,8 +1,8 @@
 .banner {
   margin: 0 20px 12px;
   padding: 14px 18px;
-  background: linear-gradient(135deg, rgba(46, 109, 164, 0.12), rgba(61, 107, 158, 0.08));
-  border: 1px solid rgba(46, 109, 164, 0.2);
+  background: rgba(46, 109, 164, 0.06);
+  border: 1px solid rgba(46, 109, 164, 0.15);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
@@ -59,10 +59,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: all var(--duration-fast);
+  box-shadow: var(--shadow-button);
 }
 
 .installBtn:hover {
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 4px 14px rgba(46,109,164,0.35);
 }
 
 .dismissBtn {

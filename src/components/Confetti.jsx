@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const PARTICLE_COLORS = ['#E8CD6B', '#D4A574', '#C49A3C', '#F5E6B8', '#8B6914', '#fff'];
+const PARTICLE_COLORS = ['#2E6DA4', '#5B8EC4', '#D9534F', '#E07070', '#245A8E', '#FC4C02'];
 const NUM_PARTICLES = 80;
 
 export default function Confetti({ active }) {

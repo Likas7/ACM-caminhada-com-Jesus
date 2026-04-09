@@ -1,11 +1,12 @@
 /* ═══════════════════════════════════════════
-   App Layout Styles — v2.0
+   App Layout Styles — v2.0 (Tema Claro)
    ═══════════════════════════════════════════ */
 
 .dashboard {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  background: var(--bg-primary);
 }
 
 /* ── Tabs ── */
@@ -81,7 +82,7 @@
   text-align: center;
   padding: 32px 20px;
   border-top: 1px solid var(--border-subtle);
-  background: var(--bg-primary);
+  background: var(--bg-card);
   margin-top: auto;
 }
 
