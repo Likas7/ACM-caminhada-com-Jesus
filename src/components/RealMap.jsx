@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import L from 'leaflet';
 import { useApp } from '../context/useApp';
-import { milestones } from '../data/milestones';
+import { getJourneyMilestones } from '../data/storage';
 import styles from './RealMap.module.css';
 
 // Custom marker icons
@@ -18,17 +18,17 @@ function createIcon(emoji, size = 28) {
 const LOCKED_ICON = createIcon('🔒', 18);
 
 export default function RealMap() {
-  const { state, setActiveModal } = useApp();
+  const { state, setActiveModal, milestones } = useApp();
 
   const unlockedSet = useMemo(
     () => new Set(state?.unlockedMilestones || [1]),
     [state?.unlockedMilestones]
   );
 
-  // Polyline connecting all milestones
+  // Polyline connecting journey milestones
   const pathPositions = useMemo(
     () => milestones.map(m => [m.lat, m.lng]),
-    []
+    [milestones]
   );
 
   // Center on the last unlocked milestone
@@ -37,7 +37,7 @@ export default function RealMap() {
     const unlocked = milestones.filter(m => unlockedSet.has(m.id));
     const last = unlocked[unlocked.length - 1];
     return last ? [last.lat, last.lng] : [32.0, 35.3];
-  }, [state, unlockedSet]);
+  }, [state, unlockedSet, milestones]);
 
   return (
     <div className={styles.container}>

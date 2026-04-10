@@ -1,15 +1,14 @@
 import { useMemo } from 'react';
 import { useApp } from '../context/useApp';
 import { formatDistance, getRank } from '../data/storage';
-import { milestones } from '../data/milestones';
 import styles from './HistoryView.module.css';
 
 export default function HistoryView() {
-  const { state } = useApp();
+  const { state, totalJourneyKm, milestones: journeyMilestones } = useApp();
 
   const unit = state?.settings?.unit || 'km';
   const history = useMemo(() => state?.history || [], [state?.history]);
-  const rank = state ? getRank(state.totalKm) : null;
+  const rank = state ? getRank(state.totalKm, state.journeyDistance) : null;
 
   // ─── Statistics ───
   const stats = useMemo(() => {
@@ -43,13 +42,13 @@ export default function HistoryView() {
     const bestWalk = history.reduce((max, h) => h.km > max ? h.km : max, 0);
 
     // Progress percentage
-    const progress = Math.min((totalKm / 360) * 100, 100);
+    const progress = Math.min((totalKm / totalJourneyKm) * 100, 100);
 
     // Milestones achieved
     const achieved = state.unlockedMilestones?.length || 1;
 
     return { totalDays, avgPerDay, streak, bestWalk, progress, achieved };
-  }, [history, state]);
+  }, [history, state, totalJourneyKm]);
 
   // ─── Group history by date ───
   const groupedHistory = useMemo(() => {
@@ -68,9 +67,10 @@ export default function HistoryView() {
   }, [history]);
 
   // ─── Next milestone ───
+  const { milestones: journeyMilestones } = useApp();
   const nextMilestone = useMemo(() => {
-    return milestones.find(m => m.kmRequired > (state?.totalKm || 0)) || null;
-  }, [state?.totalKm]);
+    return journeyMilestones?.find(m => m.kmRequired > (state?.totalKm || 0)) || null;
+  }, [state?.totalKm, journeyMilestones]);
 
   if (!state) return null;
 
@@ -169,10 +169,10 @@ export default function HistoryView() {
         <div className={styles.progressInfo}>
           <p className={styles.progressTitle}>Progresso da Jornada</p>
           <p className={styles.progressDetail}>
-            {formatDistance(state.totalKm, unit)} de {formatDistance(360, unit)}
+            {formatDistance(state.totalKm, unit)} de {formatDistance(totalJourneyKm, unit)}
           </p>
           <p className={styles.progressMilestones}>
-            ⭐ {state.unlockedMilestones?.length || 1} de 25 marcos desbloqueados
+            ⭐ {state.unlockedMilestones?.length || 1} de {journeyMilestones?.length || 25} marcos desbloqueados
           </p>
         </div>
       </div>
@@ -201,7 +201,7 @@ export default function HistoryView() {
             <div
               className={styles.nextProgressFill}
               style={{
-                width: `${Math.min(100, ((state.totalKm - (milestones.find(m => m.kmRequired < nextMilestone.kmRequired && state.unlockedMilestones?.includes(m.id))?.kmRequired || 0)) / (nextMilestone.kmRequired - (milestones.find(m => m.kmRequired < nextMilestone.kmRequired && state.unlockedMilestones?.includes(m.id))?.kmRequired || 0))) * 100)}%`
+                width: `${Math.min(100, ((state.totalKm - (journeyMilestones?.find(m => m.kmRequired < nextMilestone.kmRequired && state.unlockedMilestones?.includes(m.id))?.kmRequired || 0)) / (nextMilestone.kmRequired - (journeyMilestones?.find(m => m.kmRequired < nextMilestone.kmRequired && state.unlockedMilestones?.includes(m.id))?.kmRequired || 0))) * 100)}%`
               }}
             />
           </div>

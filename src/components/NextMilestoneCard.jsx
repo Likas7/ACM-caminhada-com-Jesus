@@ -1,12 +1,11 @@
 import { useMemo } from 'react';
 import { useApp } from '../context/useApp';
 import { formatDistance } from '../data/storage';
-import { milestones } from '../data/milestones';
 import { ACMLogo } from './ACMLogo';
 import styles from './NextMilestoneCard.module.css';
 
 export default function NextMilestoneCard() {
-  const { state, setActiveModal } = useApp();
+  const { state, setActiveModal, milestones, totalJourneyKm } = useApp();
 
   const unit = state?.settings?.unit || 'km';
 
@@ -20,7 +19,7 @@ export default function NextMilestoneCard() {
     const nxt = milestones.find(m => m.kmRequired > (state?.totalKm || 0)) || null;
 
     return { current: curr, next: nxt };
-  }, [state?.totalKm, state?.unlockedMilestones]);
+  }, [state?.totalKm, state?.unlockedMilestones, milestones]);
 
   // Calculate intermediate progress
   const segmentProgress = useMemo(() => {
@@ -34,7 +33,7 @@ export default function NextMilestoneCard() {
 
   if (!state) return null;
 
-  const isComplete = state.totalKm >= 360;
+  const isComplete = state.totalKm >= totalJourneyKm;
 
   return (
     <div className={styles.card}>

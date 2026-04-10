@@ -5,14 +5,14 @@ import { ACMIcon } from './ACMLogo';
 import styles from './Header.module.css';
 
 export default function Header() {
-  const { state, logout, updateSettings } = useApp();
+  const { state, logout, updateSettings, totalJourneyKm } = useApp();
   const [showSettings, setShowSettings] = useState(false);
   
   if (!state) return null;
 
-  const rank = getRank(state.totalKm);
+  const rank = getRank(state.totalKm, state.journeyDistance);
   const unit = state.settings?.unit || 'km';
-  const progress = Math.min((state.totalKm / 360) * 100, 100);
+  const progress = Math.min((state.totalKm / totalJourneyKm) * 100, 100);
 
   return (
     <header className={styles.header}>
@@ -34,7 +34,7 @@ export default function Header() {
           </div>
           <div className={styles.kmBadge}>
             <span className={styles.kmValue}>{formatDistance(state.totalKm, unit)}</span>
-            <span className={styles.kmLabel}>/ {formatDistance(360, unit)}</span>
+            <span className={styles.kmLabel}>/ {formatDistance(totalJourneyKm, unit)}</span>
           </div>
           <button
             className={styles.settingsBtn}

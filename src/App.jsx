@@ -25,6 +25,7 @@ const TABS = [
 
 function Dashboard() {
   const [activeTab, setActiveTab] = useState('map');
+  const { totalJourneyKm } = useApp();
 
   return (
     <div className="dashboard">
@@ -85,7 +86,7 @@ function Dashboard() {
           <ACMLogo size={40} variant="color" />
         </div>
         <p>Caminhada com Jesus — Uma jornada de fé, um passo de cada vez</p>
-        <p className="footer-sub">Missão Cristã da ACM Sorocaba · De Belém 🌟 a Jerusalém 👑 · 360 km</p>
+        <p className="footer-sub">Missão Cristã da ACM Sorocaba · De Belém 🌟 a Jerusalém 👑 · {totalJourneyKm} km</p>
       </footer>
     </div>
   );

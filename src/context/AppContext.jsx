@@ -1,21 +1,29 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { AppContext } from './AppContext.js';
-import { loadState, saveState, createUser, addKilometers, resetProgress } from '../data/storage';
-import { milestones } from '../data/milestones';
+import { loadState, saveState, createUser, addKilometers, resetProgress, JOURNEY_DISTANCES, getJourneyMilestones } from '../data/storage';
+import { milestones as allMilestones, TOTAL_KM } from '../data/milestones';
 
 export function AppProvider({ children }) {
   const [state, setState] = useState(() => loadState());
-  const [activeModal, setActiveModal] = useState(null); // milestone object or null
+  const [activeModal, setActiveModal] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+
+  const journeyDistance = state?.journeyDistance || 360;
+  
+  const milestones = useMemo(() => {
+    return getJourneyMilestones(allMilestones, journeyDistance);
+  }, [journeyDistance]);
+
+  const totalJourneyKm = journeyDistance;
 
   const showToast = useCallback((msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(''), 3500);
   }, []);
 
-  const login = useCallback((name) => {
-    const newState = createUser(name);
+  const login = useCallback((name, journeyDistance = 360) => {
+    const newState = createUser(name, journeyDistance);
     setState(newState);
   }, []);
 
@@ -23,8 +31,9 @@ export function AppProvider({ children }) {
     const updated = addKilometers(km);
     if (!updated) return;
 
-    // Check for newly unlocked milestones after adding km
-    const newlyUnlocked = milestones.filter(
+    const journeyMilestones = getJourneyMilestones(allMilestones, updated.journeyDistance || 360);
+    
+    const newlyUnlocked = journeyMilestones.filter(
       m => m.kmRequired <= updated.totalKm && !updated.unlockedMilestones.includes(m.id)
     );
 
@@ -69,6 +78,7 @@ export function AppProvider({ children }) {
     toastMessage,
     showToast,
     milestones,
+    totalJourneyKm,
     isLoggedIn: !!state,
   };
 

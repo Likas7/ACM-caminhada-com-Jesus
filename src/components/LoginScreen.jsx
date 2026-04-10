@@ -1,19 +1,23 @@
 import { useState } from 'react';
 import { useApp } from '../context/useApp';
 import { ACMLogo } from './ACMLogo';
+import { JOURNEY_DISTANCES } from '../data/storage';
 import styles from './LoginScreen.module.css';
 
 export default function LoginScreen() {
   const { login } = useApp();
   const [name, setName] = useState('');
+  const [selectedDistance, setSelectedDistance] = useState(360);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name.trim()) return;
     setIsAnimating(true);
-    setTimeout(() => login(name.trim()), 600);
+    setTimeout(() => login(name.trim(), selectedDistance), 600);
   };
+
+  const selectedJourney = JOURNEY_DISTANCES.find(d => d.id === selectedDistance);
 
   return (
     <div className={styles.container}>
@@ -38,20 +42,45 @@ export default function LoginScreen() {
           pelos lugares onde Jesus viveu e ministrou
         </p>
 
+        {/* Journey Distance Selector */}
+        <div className={styles.journeySelector}>
+          <p className={styles.selectorLabel}>Escolha sua jornada</p>
+          <div className={styles.distanceOptions}>
+            {JOURNEY_DISTANCES.map((distance) => (
+              <button
+                key={distance.id}
+                type="button"
+                className={`${styles.distanceOption} ${selectedDistance === distance.id ? styles.selected : ''}`}
+                onClick={() => setSelectedDistance(distance.id)}
+              >
+                <span className={styles.distanceIcon}>{distance.icon}</span>
+                <span className={styles.distanceValue}>{distance.id}</span>
+                <span className={styles.distanceUnit}>km</span>
+              </button>
+            ))}
+          </div>
+          <p className={styles.selectedDescription}>
+            {selectedJourney?.description}
+          </p>
+        </div>
+
+        {/* Stats - dynamic based on selection */}
         <div className={styles.stats}>
           <div className={styles.stat}>
-            <span className={styles.statValue}>360</span>
+            <span className={styles.statValue}>{selectedDistance}</span>
             <span className={styles.statLabel}>quilômetros</span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
-            <span className={styles.statValue}>25</span>
-            <span className={styles.statLabel}>marcos bíblicos</span>
+            <span className={styles.statValue}>
+              {selectedDistance === 90 ? '12' : selectedDistance === 180 ? '18' : '25'}
+            </span>
+            <span className={styles.statLabel}>marcos</span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
             <span className={styles.statValue}>1</span>
-            <span className={styles.statLabel}>jornada sagrada</span>
+            <span className={styles.statLabel}>jornada</span>
           </div>
         </div>
 

@@ -5,14 +5,14 @@ import StravaSheet from './StravaSheet';
 import styles from './AddKmPanel.module.css';
 
 export default function AddKmPanel() {
-  const { state, addKm, showToast } = useApp();
+  const { state, addKm, showToast, totalJourneyKm } = useApp();
   const [customKm, setCustomKm] = useState('');
   const [stravaOpen, setStravaOpen] = useState(false);
 
   if (!state) return null;
 
   const unit = state.settings?.unit || 'km';
-  const remaining = Math.max(0, 360 - state.totalKm);
+  const remaining = Math.max(0, totalJourneyKm - state.totalKm);
 
   const handleAdd = (km) => {
     if (km <= 0) return;
@@ -29,7 +29,7 @@ export default function AddKmPanel() {
     handleAdd(val);
   };
 
-  const isComplete = state.totalKm >= 360;
+  const isComplete = state.totalKm >= totalJourneyKm;
 
   return (
     <div className={styles.panel}>

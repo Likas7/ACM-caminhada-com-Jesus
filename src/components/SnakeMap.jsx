@@ -1,10 +1,16 @@
 import { useMemo } from 'react';
 import { useApp } from '../context/useApp';
-import { milestones, MAP_COORDS, TOTAL_KM } from '../data/milestones';
+import { milestones as allMilestones, MAP_COORDS } from '../data/milestones';
+import { getJourneyMilestones } from '../data/storage';
 import styles from './SnakeMap.module.css';
 
 export default function SnakeMap() {
-  const { state, setActiveModal } = useApp();
+  const { state, setActiveModal, milestones, totalJourneyKm } = useApp();
+
+  const journeyMilestones = useMemo(() => {
+    const journeyDistance = state?.journeyDistance || 360;
+    return getJourneyMilestones(allMilestones, journeyDistance);
+  }, [state?.journeyDistance]);
 
   const unlockedSet = useMemo(
     () => new Set(state?.unlockedMilestones || [1]),
@@ -30,18 +36,18 @@ export default function SnakeMap() {
   }, []);
 
   // Calculate progress path length percentage
-  const progressPct = state ? Math.min(state.totalKm / TOTAL_KM, 1) : 0;
+  const progressPct = state ? Math.min(state.totalKm / totalJourneyKm, 1) : 0;
 
   // Get current milestone index for the "traveler" marker
   const currentIdx = useMemo(() => {
     if (!state) return 0;
     // Find the last unlocked milestone's index
-    const unlocked = milestones
+    const unlocked = journeyMilestones
       .filter(m => unlockedSet.has(m.id))
       .sort((a, b) => b.kmRequired - a.kmRequired);
     if (unlocked.length === 0) return 0;
-    return milestones.findIndex(m => m.id === unlocked[0].id);
-  }, [unlockedSet, state]);
+    return journeyMilestones.findIndex(m => m.id === unlocked[0].id);
+  }, [unlockedSet, state, journeyMilestones]);
 
   const travelerPos = MAP_COORDS[Math.min(currentIdx, MAP_COORDS.length - 1)];
 
@@ -53,7 +59,7 @@ export default function SnakeMap() {
       </div>
 
       <svg
-        viewBox="0 0 620 680"
+        viewBox="0 0 550 700"
         className={styles.svg}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -101,7 +107,7 @@ export default function SnakeMap() {
         />
 
         {/* Milestone nodes */}
-        {milestones.map((m, idx) => {
+        {journeyMilestones.map((m, idx) => {
           const [x, y] = MAP_COORDS[idx] || [0, 0];
           const isUnlocked = unlockedSet.has(m.id);
           const isPrincipal = m.type === 'principal';
