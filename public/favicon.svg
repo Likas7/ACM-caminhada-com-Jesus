@@ -1,5 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Favicon version of the ACM Logo -->
-  <path d="M8 4 H14 V16 H20 V4 H26 V24 H20 V30 H12 V24 H8 Z" fill="#2E6DA4"/>
-  <path d="M20 4 L26 4 L26 12 Z" fill="#D9534F"/>
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <path d="M60 100 H240 L300 200 V420 H200 V280 L150 200 H60 Z" fill="#00589b"/>
+  <path d="M320 100 H440 L440 260 Z" fill="#ed1c24"/>
 </svg>

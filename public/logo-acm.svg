@@ -1,17 +1,14 @@
-<svg viewBox="0 0 512 640" xmlns="http://www.w3.org/2000/svg">
-  <!-- Classic ACM/YMCA Logo Structure -->
-  <g transform="translate(106, 40)">
-    <!-- Blue Body -->
-    <path d="M0 0 H80 V180 H140 V0 H220 V300 H140 V400 H60 V300 H0 Z" fill="#2E6DA4"/>
+<svg viewBox="0 0 512 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Official ACM/YMCA Logo - High Fidelity Re-creation -->
+  <g transform="translate(60, 40)">
+    <!-- Blue "Y" Body -->
+    <path d="M0 60 C0 35 15 20 40 20 H180 L240 120 V340 C240 365 225 380 200 380 H140 V200 L90 120 H40 C15 120 0 105 0 80 Z" fill="#00589b"/>
     <!-- Red Triangle -->
-    <path d="M140 0 L220 0 L220 120 Z" fill="#D9534F"/>
-    <!-- Registered Symbol -->
-    <circle cx="235" cy="275" r="8" stroke="#2E6DA4" stroke-width="1" fill="none"/>
-    <text x="235" y="279" font-family="Arial" font-size="10" fill="#2E6DA4" text-anchor="middle">R</text>
+    <path d="M260 20 H380 C405 20 420 35 420 60 L420 180 Z" fill="#ed1c24"/>
   </g>
   
   <!-- ACM Text -->
-  <text x="256" y="520" font-family="Arial, sans-serif" font-weight="900" font-size="90" fill="#2E6DA4" text-anchor="middle">ACM</text>
+  <text x="256" y="520" font-family="'Inter', Arial, sans-serif" font-weight="900" font-size="90" fill="#00589b" text-anchor="middle">ACM</text>
   <!-- SOROCABA Text -->
-  <text x="256" y="580" font-family="Arial, sans-serif" font-weight="700" font-size="34" fill="#2E6DA4" text-anchor="middle" letter-spacing="10">SOROCABA</text>
+  <text x="256" y="580" font-family="'Inter', Arial, sans-serif" font-weight="700" font-size="34" fill="#00589b" text-anchor="middle" letter-spacing="10">SOROCABA</text>
 </svg>
